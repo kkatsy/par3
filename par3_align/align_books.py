@@ -122,9 +122,10 @@ def main():
             pickle.dump(aligned_data, f)
 
         # make output_html directory if it doesn't exist
-        os.makedirs(args.output_html, exist_ok=True)
         if args.output_html:
-            export_html(html_outputs, f"{args.output_html}/{book}")
+            os.makedirs(args.output_html, exist_ok=True)
+            if args.output_html:
+                export_html(html_outputs, f"{args.output_html}/{book}")
 
 if __name__ == "__main__":
     main()
